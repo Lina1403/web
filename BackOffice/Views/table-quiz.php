@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -42,6 +43,12 @@
             </button>
             <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
             <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+            <?php if (isset($_SESSION['email'])) { ?>
+                        <a href="#" class="nav-item nav-link" style="color: #007bff; font-weight: bold;">Hello, <?php echo $_SESSION['name']; ?></a>
+                    <?php }  ?>
+            </div>
+                        <a href="logout.php" class="btn btn-primary py-2 px-4 d-none d-lg-block">Logout</a>           
+            </div>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">

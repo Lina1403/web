@@ -46,37 +46,51 @@
 				echo 'Erreur: '.$e->getMessage();
 			}			
 		}
-
-		function loginUser($Email, $pass){
+		function loginUser($email, $pass) {
 			$db = config::getConnexion();
-			try{
-				$stmt=$db->prepare("SELECT * from user where (email='".$email."' AND pass='".$pass."')");
+			try {
+				$stmt = $db->prepare("SELECT * FROM user WHERE email=:email AND pass=:pass");
+				$stmt->bindParam(':email', $email);
+				$stmt->bindParam(':pass', $pass);
 				$stmt->execute();
+				
 				if ($stmt->rowCount() > 0) {
-					while($found_user = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						if (!array_key_exists('email',$_SESSION)) {
-							$_SESSION["ID"] = $found_user["ID"];
-							$_SESSION["name"] = $found_user["name"];
-							$_SESSION["email"] = $found_user["email"];
-							$_SESSION["pass"] = $found_user["pass"];
-							$_SESSION["adresse"] = $found_user["adresse"];
-							$_SESSION["num"] = $found_user["num"];
-							$_SESSION["role"] = $found_user["role"];
-							}
+					$found_user = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+					// Start a session if not already started
+					if (session_status() == PHP_SESSION_NONE) {
+						session_start();
 					}
-					header('Location:../index.php');
-
-				}
-				else {
+		
+					$_SESSION["ID"] = $found_user["ID"];
+					$_SESSION["name"] = $found_user["name"];
+					$_SESSION["email"] = $found_user["email"];
+					$_SESSION["pass"] = $found_user["pass"];
+					$_SESSION["adresse"] = $found_user["adresse"];
+					$_SESSION["num"] = $found_user["num"];
+					$_SESSION["role"] = $found_user["role"];
+		
+					// Check the user's role and redirect accordingly
+					if ($_SESSION["role"] == "admin" || $_SESSION["role"] == "enseignant") {
+						header('Location: ../../BackOffice/Views/table-cours.php');
+						exit(); // Make sure to exit after a header redirect
+					} else if ($_SESSION["role"] == "etudiant") {
+						header('Location: ../Views/listcours.php'); // Replace with the appropriate etudiant list page
+						exit(); // Make sure to exit after a header redirect
+					}
+				} else {
 					echo "<script type='text/javascript'>alert('Username/Password are wrong');</script>";
-					header('Location:../Users/login.php');
+					header('Location: ../Views/login.php');
+					exit(); // Make sure to exit after a header redirect
 				}
-
-			}
-			catch (Exception $e){
-				die('Erreur: '.$e->getMessage());
+				
+			} catch (Exception $e) {
+				die('Erreur: ' . $e->getMessage());
 			}
 		}
+		
+
+		
 
 		function deleteUser($ID){
 			$sql="DELETE FROM user WHERE ID=:ID";
