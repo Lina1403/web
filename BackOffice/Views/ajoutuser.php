@@ -56,6 +56,8 @@
                         <ul class="sub-menu children dropdown-menu">
                             <!-- <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li> -->
                             <li><i class="fa fa-table"></i><a href="table-user.php">Utilisateur</a></li>
+                        <li><i class="fa fa-table"></i><a href="table-cours.php">Cours</a></li>
+                        <li><i class="fa fa-table"></i><a href="table-quiz.php">Quiz</a></li>
                             
                         </ul>
                     </li>
@@ -126,7 +128,7 @@
                                         </div>
                                         <hr>
                                         <!--  onsubmit="return validateForm(event)"   -->
-                                        <form action="ajoutliv_form.php"    name="Form"    method="POST">
+                                        <form action="ajoutliv_form.php"    name="Form"    method="POST" onsubmit="return validateForm();">
 
                                             <div class="form-group">
                                                 <label >ID Utilisateur</label>

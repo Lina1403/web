@@ -69,11 +69,9 @@ if (isset ($_GET['s']) AND !empty($_GET['s'])){
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                     <ul class="sub-menu children dropdown-menu">
                     
-                        <li><i class="fa fa-table"></i><a href="table-admin.php">admin</a></li>
-                        <li><i class="fa fa-table"></i><a href="table-client.php">reclamation</a></li>
-                        <li><i class="fa fa-table"></i><a href="table-message.php">message</a></li>
-                        <li><i class="fa fa-table"></i><a href="table-evenement.php">evenement</a></li>
-                        <li><i class="fa fa-table"></i><a href="table-stock.php">stock</a></li>
+                    <li><i class="fa fa-table"></i><a href="table-user.php">Utilisateur</a></li>
+                        <li><i class="fa fa-table"></i><a href="table-cours.php">Cours</a></li>
+                        <li><i class="fa fa-table"></i><a href="table-quiz.php">Quiz</a></li>
                     </ul>
                 </li></ul>
         </div><!-- /.navbar-collapse -->
