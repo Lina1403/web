@@ -27,6 +27,30 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="csclient.js"></script>
+    <script>
+    function validateForm() {
+        var titre = document.forms["Form"]["titre"].value;
+        var description = document.forms["Form"]["description"].value;
+        var id_user = document.forms["Form"]["id_user"].value;
+
+        if (titre === "") {
+            alert("Please enter a titre.");
+            return false;
+        }
+
+        if (description === "") {
+            alert("Please enter a description.");
+            return false;
+        }
+
+        if (id_user === "") {
+            alert("Please select an ID utilisateur.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 
 </head>
@@ -127,7 +151,7 @@
                                         </div>
                                         <hr>
                                         <!--  onsubmit="return validateForm(event)"   -->
-                                        <form action="ajoutcours_form.php" name="Form" method="POST">
+                                        <form action="ajoutcours_form.php" name="Form" method="POST" onsubmit="return validateForm();">
                                             <div class="form-group">
                                                 <label>ID Cours</label>
                                                 <input type="number" name="id" class="form-control" hidden>
