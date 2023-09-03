@@ -27,6 +27,36 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="csclient.js"></script>
+    <script>
+    function validateForm() {
+        var titre = document.forms["Form"]["titre"].value;
+        var questions = document.forms["Form"]["questions"].value;
+        var reponses = document.forms["Form"]["reponses"].value;
+        var id_cours = document.forms["Form"]["id_cours"].value;
+
+        if (titre === "") {
+            alert("Please enter a titre.");
+            return false;
+        }
+
+        if (questions === "") {
+            alert("Please enter questions.");
+            return false;
+        }
+
+        if (reponses === "") {
+            alert("Please enter reponses.");
+            return false;
+        }
+
+        if (id_cours === "") {
+            alert("Please select an ID Cours.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 
 </head>
@@ -128,7 +158,7 @@
                                         </div>
                                         <hr>
                                         <!--  onsubmit="return validateForm(event)"   -->
-                                        <form action="ajoutquiz_form.php" name="Form" method="POST">
+                                        <form action="ajoutquiz_form.php" name="Form" method="POST" onsubmit="return validateForm();">
                                             <div class="form-group">
                                                 <label>ID Quiz</label>
                                                 <input type="number" name="id" class="form-control" hidden>
