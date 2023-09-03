@@ -27,7 +27,49 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="csclient.js"></script>
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["Form"]["name"].value;
+            var email = document.forms["Form"]["email"].value;
+            var pass = document.forms["Form"]["pass"].value;
+            var adresse = document.forms["Form"]["adresse"].value;
+            var num = document.forms["Form"]["num"].value;
+            var role = document.forms["Form"]["role"].value;
 
+            if (name === "") {
+                alert("Please enter a name.");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Please enter an email address.");
+                return false;
+            }
+
+            if (pass === "") {
+                alert("Please enter a password.");
+                return false;
+            }
+
+            if (adresse === "") {
+                alert("Please enter an address.");
+                return false;
+            }
+
+            if (num === "") {
+                alert("Please enter a number.");
+                return false;
+            }
+
+            if (role === "") {
+                alert("Please enter a role.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
 </head>
 
