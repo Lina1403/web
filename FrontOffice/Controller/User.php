@@ -87,10 +87,7 @@
 			} catch (Exception $e) {
 				die('Erreur: ' . $e->getMessage());
 			}
-		}
-		
-
-		
+		}				
 
 		function deleteUser($ID){
 			$sql="DELETE FROM user WHERE ID=:ID";

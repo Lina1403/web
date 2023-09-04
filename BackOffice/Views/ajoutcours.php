@@ -32,12 +32,11 @@
         var titre = document.forms["Form"]["titre"].value;
         var description = document.forms["Form"]["description"].value;
         var id_user = document.forms["Form"]["id_user"].value;
-
+ 
         if (titre === "") {
             alert("Please enter a titre.");
             return false;
         }
-
         if (description === "") {
             alert("Please enter a description.");
             return false;

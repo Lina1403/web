@@ -51,12 +51,17 @@
                 alert("Please enter a password.");
                 return false;
             }
-
+            if (!(pass.match(/[0-9]/g) && pass.match(/[A-Z]/g) && pass.match(/[a-z]/g) && pass.length >= 8)) {
+                alert( "Le mot de passe doit contenir au moins 8 caractères, dont au moins : Une lettre majuscule, Une lettre minuscule et un nombre.");    
+                                   }   
             if (adresse === "") {
                 alert("Please enter an address.");
                 return false;
             }
-
+            if(!adresse.match(",tunis")) {
+                    alert("Veuillez entrer une adress qui se termine avec ,tunis");
+                    return false;
+                }
             if (num === "") {
                 alert("Please enter a number.");
                 return false;
@@ -66,7 +71,7 @@
                 alert("Please enter a role.");
                 return false;
             }
-
+   
             return true;
         }
     </script>
@@ -201,8 +206,12 @@
                                                 <input type="number" name="num"  class="form-control" >                                           
                                             </div>
                                             <div class="form-group">
-                                                <label >role</label>
-                                                <input type="text" name="role"  class="form-control" >
+                                                    <label>Role</label>
+                                                    <select name="role" class="form-control">
+                                                        <option value="admin">Admin</option>
+                                                        <option value="etudiant">Etudiant</option>
+                                                        <option value="enseignant">Enseignant</option>
+                                                    </select>
                                             </div>
 
                                                 <div>

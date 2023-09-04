@@ -66,17 +66,5 @@ class QuizController {
                 die('Erreur: '.$e->getMessage());
             }   
         }
-        function getQuiz(array $values) {
-			$db = config::getConnexion();
-			$sql = "select * from quiz ";
-			try{
-				$query = $db->prepare($sql);
-				$query->execute($values);
-				return $query->fetch();
-			}
-			catch(Exception $e){
-				die('Erreur:'. $e->getMessage());
-			}
-		}
 	}
 ?>

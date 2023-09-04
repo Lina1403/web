@@ -27,6 +27,7 @@ if (isset($_GET['quiz_id'])) {
         $pdf->SetFont('times', '', 12);
         $pdf->Cell(0, 10, 'Quiz Name: ' . $quizInfo["titre"], 0, 1);
         $pdf->Cell(0, 10, 'Questions: ' . $quizInfo["questions"], 0, 1);
+        $pdf->Cell(0, 10, 'Reponses: ' . $quizInfo["reponses"], 0, 1);
         $pdf->Cell(0, 10, 'Duration: 10.00 Hrs', 0, 1);
         $pdf->Cell(0, 10, 'Quiz for Course: ' . $quizInfo["id_cours"], 0, 1);
         $pdf->Cell(0, 10, 'Language: English', 0, 1);
